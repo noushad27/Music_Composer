@@ -1,0 +1,7 @@
+setup.py
+AI_MUSIC_COMPOSER.egg-info/PKG-INFO
+AI_MUSIC_COMPOSER.egg-info/SOURCES.txt
+AI_MUSIC_COMPOSER.egg-info/dependency_links.txt
+AI_MUSIC_COMPOSER.egg-info/requires.txt
+AI_MUSIC_COMPOSER.egg-info/top_level.txt
+app/__init__.py
