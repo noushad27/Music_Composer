@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind : Deployment
+metadata:
+  name: music-composer
+spec:
+  replicas: 1
+  selector: 
+    matchLabels:
+      app: music-composer
+  template:
+    metadata:
+      labels:
+        app: music-composer 
+    spec:
+      containers: 
+      - name: music-composer
+        image: 
+        ports:
+        - containerPort: 8501
+        env:
+        - name: GROQ_API_TOKEN
+          valueFrom:
+            secretKeyRef:
+              name: groq-api-token
+              key: GROQ_API_TOKEN
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: music-composer-service
+spec:
+  selector:
+     app: music-composer  
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 8501
+  type: LoadBalancer
